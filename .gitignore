@@ -1,0 +1,10 @@
+# Ignorar archivos de configuración local
+.env
+
+# Ignorar archivos generados automáticamente
+/node_modules
+/build
+
+# Ignorar archivos de dependencias de paquetes
+package-lock.json
+yarn.lock
