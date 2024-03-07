@@ -4,8 +4,13 @@ import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 dotenv.config();
 import authRouter from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
+
 const app = express();
+
 app.use(express.json());
+
+app.use(cookieParser())
 
 mongoose
   .connect(process.env.MONGO)
@@ -16,6 +21,8 @@ mongoose
     console.error("Error connecting to MongoDB:", err.message);
   });
 
+
+  //routes
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use((err, req, res, next) => {
