@@ -43,10 +43,10 @@ const listingSchema = new mongoose.Schema(
         required: true,
       },
       offer: {
-        type: Boolean, // Corregido de "typr" a "type"
+        type: Boolean, 
         required: true,
       },
-      imageUrls: { // Corregido de "iimageUrls" a "imageUrls"
+      imageUrls: { 
         type: Array,
         required: true,
       },
