@@ -2,7 +2,7 @@
 .env
 
 # Ignorar archivos generados automáticamente
-/node_modules
+node_modules/
 /build
 
 # Ignorar archivos de dependencias de paquetes
