@@ -5,7 +5,10 @@ const ListingItem = ({ listing }) => {
     <div className="bg-white shadow-md hover:shadow-large transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]">
       <Link to={`/listing/${listing._id}`}>
         <img
-          src={listing.imageUrls[0] || "https://www.bproperty.com/blog/wp-content/uploads/2021/04/house-1867187_1920.jpg"}
+          src={
+            listing.imageUrls[0] ||
+            "https://www.bproperty.com/blog/wp-content/uploads/2021/04/house-1867187_1920.jpg"
+          }
           alt="listing cover"
           className="h-[320px] sm:h-[220px] w-full object-cover rounded-lg hover:scale-105 transition-scale duration-300"
         />
@@ -20,18 +23,29 @@ const ListingItem = ({ listing }) => {
           <p className="text-sm text-gray-600 line-clamp-2">
             Listing.description
           </p>
-          <p className="text-slate-500 mt-2 font-semibold">$
-            {listing.offer ? listing.discountPrice.toLocaleString('en-US') : listing.regularPriceto.LocaleString('en-US')}
+          <p className="text-slate-500 mt-2 font-semibold">
+            $
+            {listing.offer
+              ? listing.discountPrice
+                ? listing.discountPrice.toLocaleString("en-US")
+                : "N/A"
+              : listing.regularPrice
+              ? listing.regularPrice.toLocaleString("en-US")
+              : "N/A"}
             {listing.type === "rent" && " / month"}
-            </p>
-            <div className="text-slate-700 flex gap-4">
-                <div className="font-bold text-xs">
-                    {listing.bedrooms > 1 ? `${listing.bedrooms} beds `: `${listing.bedrooms} bed `}
-                </div>
-                <div className="font-bold text-xs">
-                    {listing.bathrooms > 1 ? `${listing.bathrooms} baths `: `${listing.bathrooms} bath `}
-                </div>
+          </p>
+          <div className="text-slate-700 flex gap-4">
+            <div className="font-bold text-xs">
+              {listing.bedrooms > 1
+                ? `${listing.bedrooms} beds `
+                : `${listing.bedrooms} bed `}
             </div>
+            <div className="font-bold text-xs">
+              {listing.bathrooms > 1
+                ? `${listing.bathrooms} baths `
+                : `${listing.bathrooms} bath `}
+            </div>
+          </div>
         </div>
       </Link>
     </div>
